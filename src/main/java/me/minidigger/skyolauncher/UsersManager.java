@@ -3,6 +3,7 @@ package me.minidigger.skyolauncher;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -98,7 +99,7 @@ public class UsersManager {
         public String accountName; // For migrated accounts.
         public boolean isOnline;
         public String accessToken;
-        public List<Property> properties;
+        public List<Property> properties = new ArrayList<>();
 
         public User(final String uuid) throws JsonSyntaxException, IllegalArgumentException, IllegalAccessException, IOException {
             super(ObjectType.USER, uuid);
@@ -112,9 +113,11 @@ public class UsersManager {
             this.accountName = accountName;
             this.isOnline = isOnline;
             this.accessToken = accessToken;
-            this.properties = properties;
+            if (properties == null) {
+                this.properties = new ArrayList<>();
+            } else {
+                this.properties = properties;
+            }
         }
-
     }
-
 }

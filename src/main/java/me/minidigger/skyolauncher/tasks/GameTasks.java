@@ -175,7 +175,7 @@ public class GameTasks extends Thread {
             command.add("-cp");
             command.add(StringUtils.join(librariesPaths, pathSeparator) + pathSeparator + gameFile.getAbsolutePath());
             command.add(game.mainClass);
-            command.addAll(getMinecraftArgs(game, user == null ? new User("Player", UUID.nameUUIDFromBytes(("OfflinePlayer:Player").getBytes(Charset.forName("UTF-8"))).toString().replace("-", ""), "Player", false, "0", new ArrayList<>()) : user, gson, assetsDir, assetsObjectsDir));
+            command.addAll(getMinecraftArgs(game, user == null ? getDummyUser() : user, gson, assetsDir, assetsObjectsDir));
             LogUtils.log(Level.INFO, LauncherConstants.GAME_TASKS_PREFIX + "Executing command : " + StringUtils.join(command, ' '));
             final Process process = new ProcessBuilder(command.toArray(new String[command.size()])).directory(profile.gameDirectory).start();
             LogUtils.log(Level.INFO, LauncherConstants.GAME_TASKS_PREFIX + "Done.");
@@ -187,6 +187,10 @@ public class GameTasks extends Thread {
         } catch (final Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private User getDummyUser() {
+        return new User("Player", UUID.nameUUIDFromBytes(("OfflinePlayer:Player").getBytes(Charset.forName("UTF-8"))).toString().replace("-", ""), "Player", false, "0", new ArrayList<>());
     }
 
     private List<String> getMinecraftArgs(final Game game, final User user, final Gson gson, final File assetsDir, final File assetsObjectsDir) {

@@ -2,6 +2,7 @@ package me.minidigger.skyolauncher.tasks;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import javax.swing.*;
@@ -99,7 +100,7 @@ public class AuthUser extends Thread {
 
     public class UserProperties {
 
-        public List<Property> properties;
+        public List<Property> properties = new ArrayList<>();
 
     }
 
