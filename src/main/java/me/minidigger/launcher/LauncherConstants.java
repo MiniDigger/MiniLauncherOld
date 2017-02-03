@@ -20,7 +20,7 @@ public class LauncherConstants {
     public static final String LAUNCHER_NAME = "MiniLauncher";
     public static final String LAUNCHER_VERSION = "1.0.0";
     public static final String LAUNCHER_STATUS = "BETA";
-    public static final String[] LAUNCHER_AUTHORS = new String[]{"Skyost, MiniDigger"};
+    public static final String[] LAUNCHER_AUTHORS = new String[]{"MiniDigger"};
     public static final String LAUNCHER_PREFIX = "[Launcher] ";
     public static final Font LAUNCHER_FONT = loadFontFromRes(Font.TRUETYPE_FONT, "/Ubuntu-L.ttf", 13f);
     public static final Image LAUNCHER_ICON = loadImageFromRes("/Icon.png");
@@ -70,7 +70,7 @@ public class LauncherConstants {
     public static final String ASSETS_INDEXES_SUFFIX = "/indexes";
     public static final String ASSETS_VIRTUAL_SUFFIX = "/virtual";
     public static final String ASSETS_LEGACY_SUFFIX = "/legacy";
-    public static final String MINECRAFT_SERVER_IP = null; // Leave null if you do not want to enable this option.
+    public static final String MINECRAFT_SERVER_IP = "localhost"; // Leave null if you do not want to enable this option.
     public static final short MINECRAFT_SERVER_PORT = 25565;
 
 	/* RefreshToken options. */

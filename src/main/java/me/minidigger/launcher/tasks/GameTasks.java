@@ -20,8 +20,8 @@ import java.util.logging.Level;
 import javax.swing.*;
 
 import me.minidigger.launcher.LauncherConstants;
-import me.minidigger.launcher.ProfilesManager.LauncherProfile;
 import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.ProfilesManager.LauncherProfile;
 import me.minidigger.launcher.UsersManager;
 import me.minidigger.launcher.UsersManager.User;
 import me.minidigger.launcher.tasks.AuthUser.Property;
@@ -200,6 +200,7 @@ public class GameTasks extends Thread {
         for (final Property property : user.properties) {
             properties.put(property.name, Collections.singletonList(property.value));
         }
+        System.out.println(game.minecraftArguments);
         map.put("auth_player_name", user.username);
         map.put("version_name", profile.version);
         map.put("game_directory", profile.gameDirectory.getPath());
@@ -210,6 +211,7 @@ public class GameTasks extends Thread {
         map.put("user_properties", gson.toJson(properties));
         map.put("user_type", "mojang");
         map.put("game_assets", assetsObjectsDir.getPath());
+        map.put("version_type", user.username);
         final StrSubstitutor substitutor = new StrSubstitutor(map);
         for (int i = 0; i != args.size(); i++) {
             args.set(i, substitutor.replace(args.get(i)));
