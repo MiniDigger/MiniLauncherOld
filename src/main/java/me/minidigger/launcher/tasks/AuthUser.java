@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import com.google.gson.Gson;
 
@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.logging.Level;
 import javax.swing.*;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.frames.UserFrame;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.frames.UserFrame;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class AuthUser extends Thread {
 
@@ -33,7 +33,7 @@ public class AuthUser extends Thread {
         LogUtils.log(Level.INFO, LauncherConstants.AUTH_USER_PREFIX + "Password : " + password.replaceAll(".", "x"));
         try {
             final Gson gson = new Gson();
-            final AuthSession session = gson.fromJson(ConnectionUtils.httpJsonPost(LauncherConstants.AUTHENTICATION_URL, gson.toJson(new AuthRequest(username, password, Skyolauncher.config.clientToken))), AuthSession.class);
+            final AuthSession session = gson.fromJson(ConnectionUtils.httpJsonPost(LauncherConstants.AUTHENTICATION_URL, gson.toJson(new AuthRequest(username, password, MiniLauncher.config.clientToken))), AuthSession.class);
             LogUtils.log(Level.INFO, LauncherConstants.AUTH_USER_PREFIX + "Done.");
             parent.saveAndNotifyListeners(new User(session.selectedProfile.name, session.selectedProfile.id, username, true, session.accessToken, session.user.properties));
         } catch (final Exception ex) {

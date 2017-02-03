@@ -1,9 +1,9 @@
-package me.minidigger.skyolauncher.frames;
+package me.minidigger.launcher.frames;
 
 import java.awt.*;
 import javax.swing.*;
 
-import me.minidigger.skyolauncher.LauncherConstants;
+import me.minidigger.launcher.LauncherConstants;
 
 public class ChangelogFrame extends JDialog {
 

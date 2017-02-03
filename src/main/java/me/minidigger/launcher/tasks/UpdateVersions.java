@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import com.google.gson.Gson;
 
@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
-import me.minidigger.skyolauncher.utils.Utils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
+import me.minidigger.launcher.utils.Utils;
 
 public class UpdateVersions extends Thread {
 

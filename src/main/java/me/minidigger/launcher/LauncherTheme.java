@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher;
+package me.minidigger.launcher;
 
 import com.pagosoft.plaf.PgsTheme;
 

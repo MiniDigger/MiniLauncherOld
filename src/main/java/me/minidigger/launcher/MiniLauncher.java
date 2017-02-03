@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher;
+package me.minidigger.launcher;
 
 import com.pagosoft.plaf.PgsLookAndFeel;
 
@@ -11,21 +11,21 @@ import java.util.logging.Level;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 
-import me.minidigger.skyolauncher.ProfilesManager.LauncherProfile;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.frames.ConsoleFrame;
-import me.minidigger.skyolauncher.frames.LauncherFrame;
-import me.minidigger.skyolauncher.tasks.AutoUpdater;
-import me.minidigger.skyolauncher.tasks.ConnectivityChecker;
-import me.minidigger.skyolauncher.tasks.RefreshToken;
-import me.minidigger.skyolauncher.utils.JSONObject.ObjectType;
-import me.minidigger.skyolauncher.utils.LogUtils;
-import me.minidigger.skyolauncher.utils.LogUtils.ErrorOutputStream;
-import me.minidigger.skyolauncher.utils.SystemManager;
-import me.minidigger.skyolauncher.utils.SystemManager.OS;
-import me.minidigger.skyolauncher.utils.Utils;
+import me.minidigger.launcher.ProfilesManager.LauncherProfile;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.frames.ConsoleFrame;
+import me.minidigger.launcher.frames.LauncherFrame;
+import me.minidigger.launcher.tasks.AutoUpdater;
+import me.minidigger.launcher.tasks.ConnectivityChecker;
+import me.minidigger.launcher.tasks.RefreshToken;
+import me.minidigger.launcher.utils.JSONObject.ObjectType;
+import me.minidigger.launcher.utils.LogUtils;
+import me.minidigger.launcher.utils.LogUtils.ErrorOutputStream;
+import me.minidigger.launcher.utils.SystemManager;
+import me.minidigger.launcher.utils.SystemManager.OS;
+import me.minidigger.launcher.utils.Utils;
 
-public class Skyolauncher {
+public class MiniLauncher {
 
     public static final SystemManager SYSTEM = new SystemManager();
 

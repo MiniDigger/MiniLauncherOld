@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import com.google.gson.Gson;
 
@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.TimerTask;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.utils.ConnectionUtils;
 
 public class ServicesStatus extends TimerTask {
 
@@ -34,7 +34,7 @@ public class ServicesStatus extends TimerTask {
             for (final ServiceStatusListener listener : listeners) {
                 listener.onStatusCheckBegin();
             }
-            if (Skyolauncher.isOnline) {
+            if (MiniLauncher.isOnline) {
                 final HashMap<?, ?>[] responses = new Gson().fromJson(ConnectionUtils.httpGet(LauncherConstants.STATUS_CHECK_URL, null), HashMap[].class);
                 for (final HashMap<?, ?> response : responses) {
                     for (final Entry<?, ?> entry : response.entrySet()) {

@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher;
+package me.minidigger.launcher;
 
 import com.google.gson.JsonSyntaxException;
 
@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.utils.JSONObject;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.utils.JSONObject;
 
 public class ProfilesManager {
 

@@ -1,11 +1,11 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import java.util.logging.Level;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class ConnectivityChecker extends Thread {
 
@@ -13,10 +13,10 @@ public class ConnectivityChecker extends Thread {
     public final void run() {
         LogUtils.log(Level.INFO, LauncherConstants.CONNECTIVITY_CHECKER_PREFIX + "Waiting for the connectivity checker...");
         try {
-            Skyolauncher.isOnline = ConnectionUtils.isOnline(LauncherConstants.CONNECTIVITY_CHECKER_URLS);
+            MiniLauncher.isOnline = ConnectionUtils.isOnline(LauncherConstants.CONNECTIVITY_CHECKER_URLS);
         } catch (final Exception ex) {
             ex.printStackTrace();
-            Skyolauncher.isOnline = false;
+            MiniLauncher.isOnline = false;
         }
         LogUtils.log(Level.INFO, LauncherConstants.CONNECTIVITY_CHECKER_PREFIX + "Done.");
     }

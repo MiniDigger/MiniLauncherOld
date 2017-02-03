@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.swing.*;
 
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class StreamReader extends Thread {
 

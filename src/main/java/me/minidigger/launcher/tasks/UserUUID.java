@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import com.google.gson.Gson;
 
@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.UsersManager;
-import me.minidigger.skyolauncher.frames.UserFrame;
-import me.minidigger.skyolauncher.tasks.AuthUser.Property;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.UsersManager;
+import me.minidigger.launcher.frames.UserFrame;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class UserUUID extends Thread {
 

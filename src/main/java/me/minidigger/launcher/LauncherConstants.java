@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher;
+package me.minidigger.launcher;
 
 import java.awt.*;
 
@@ -108,7 +108,7 @@ public class LauncherConstants {
 
     private static Font loadFontFromRes(final int format, final String path, final float size) {
         try {
-            return Font.createFont(format, Skyolauncher.class.getResourceAsStream(path)).deriveFont(size);
+            return Font.createFont(format, MiniLauncher.class.getResourceAsStream(path)).deriveFont(size);
         } catch (final Exception ex) {
             ex.printStackTrace();
         }
@@ -116,7 +116,7 @@ public class LauncherConstants {
     }
 
     private static Image loadImageFromRes(final String path) {
-        return Toolkit.getDefaultToolkit().getImage(Skyolauncher.class.getResource(path));
+        return Toolkit.getDefaultToolkit().getImage(MiniLauncher.class.getResource(path));
     }
 
 }

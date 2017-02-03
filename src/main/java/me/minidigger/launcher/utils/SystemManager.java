@@ -1,9 +1,9 @@
-package me.minidigger.skyolauncher.utils;
+package me.minidigger.launcher.utils;
 
 import java.io.File;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
 
 public class SystemManager {
 
@@ -62,7 +62,7 @@ public class SystemManager {
     }
 
     public final File getLauncherTemporaryDirectory() {
-        return new File(Skyolauncher.SYSTEM.getApplicationDirectory() + File.separator + "temp");
+        return new File(MiniLauncher.SYSTEM.getApplicationDirectory() + File.separator + "temp");
     }
 
     public enum OS {

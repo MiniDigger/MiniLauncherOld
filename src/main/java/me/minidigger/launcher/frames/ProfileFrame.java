@@ -1,8 +1,6 @@
-package me.minidigger.skyolauncher.frames;
+package me.minidigger.launcher.frames;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
@@ -18,18 +16,18 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.ProfilesManager.LauncherProfile;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.UsersManager;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.frames.UserFrame.UserChangesListener;
-import me.minidigger.skyolauncher.tasks.ChangelogDownloader;
-import me.minidigger.skyolauncher.tasks.UpdateVersions;
-import me.minidigger.skyolauncher.tasks.UpdateVersions.Version;
-import me.minidigger.skyolauncher.tasks.UpdateVersions.VersionsListener;
-import me.minidigger.skyolauncher.tasks.UpdateVersions.VersionsResult;
-import me.minidigger.skyolauncher.utils.Utils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.ProfilesManager.LauncherProfile;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.UsersManager;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.frames.UserFrame.UserChangesListener;
+import me.minidigger.launcher.tasks.ChangelogDownloader;
+import me.minidigger.launcher.tasks.UpdateVersions;
+import me.minidigger.launcher.tasks.UpdateVersions.Version;
+import me.minidigger.launcher.tasks.UpdateVersions.VersionsListener;
+import me.minidigger.launcher.tasks.UpdateVersions.VersionsResult;
+import me.minidigger.launcher.utils.Utils;
 
 public class ProfileFrame extends JDialog implements UserChangesListener, VersionsListener {
 
@@ -224,7 +222,7 @@ public class ProfileFrame extends JDialog implements UserChangesListener, Versio
 
     public final void refreshVersions() {
         new Thread(() -> {
-            if (Skyolauncher.isOnline) {
+            if (MiniLauncher.isOnline) {
                 new UpdateVersions().start();
             } else {
                 new UpdateVersions(new File(txtfldGameDir.getText() + File.separator + "versions")).start();
@@ -246,7 +244,7 @@ public class ProfileFrame extends JDialog implements UserChangesListener, Versio
             chckbxLogMinecraft.setSelected(profile.logMinecraft);
         } else {
             txtfldProfileName.setText("New profile");
-            txtfldGameDir.setText(Skyolauncher.SYSTEM.getMinecraftDirectory().getPath());
+            txtfldGameDir.setText(MiniLauncher.SYSTEM.getMinecraftDirectory().getPath());
             txtfldArguments.setText("-Xms512m -Xmx1024m");
         }
     }

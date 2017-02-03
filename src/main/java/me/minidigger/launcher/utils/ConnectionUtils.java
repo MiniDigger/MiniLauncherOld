@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.utils;
+package me.minidigger.launcher.utils;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +16,7 @@ import java.util.logging.Level;
 import javax.net.ssl.HttpsURLConnection;
 import javax.swing.*;
 
-import me.minidigger.skyolauncher.LauncherConstants;
+import me.minidigger.launcher.LauncherConstants;
 
 public class ConnectionUtils {
 

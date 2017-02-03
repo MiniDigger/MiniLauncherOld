@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import com.google.gson.Gson;
 
@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.frames.UserFrame;
-import me.minidigger.skyolauncher.tasks.AuthUser.AuthSession;
-import me.minidigger.skyolauncher.tasks.AuthUser.SimpleSession;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.frames.UserFrame;
+import me.minidigger.launcher.tasks.AuthUser.AuthSession;
+import me.minidigger.launcher.tasks.AuthUser.SimpleSession;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class RefreshToken extends Thread {
 
@@ -31,12 +31,12 @@ public class RefreshToken extends Thread {
             listener.onTokenTaskBegin();
         }
         final HashMap<User, AuthSession> result = new HashMap<>();
-        if (Skyolauncher.isOnline) {
+        if (MiniLauncher.isOnline) {
             try {
                 final Gson gson = new Gson();
                 for (final User user : users) {
                     LogUtils.log(Level.INFO, LauncherConstants.REFRESH_TOKEN_PREFIX + "Refreshing access token for " + user.accountName + "...");
-                    final String response = ConnectionUtils.httpJsonPost(LauncherConstants.REFRESH_TOKEN_URL, gson.toJson(new SimpleSession(user.accessToken, Skyolauncher.config.clientToken)));
+                    final String response = ConnectionUtils.httpJsonPost(LauncherConstants.REFRESH_TOKEN_URL, gson.toJson(new SimpleSession(user.accessToken, MiniLauncher.config.clientToken)));
                     final AuthSession session = gson.fromJson(response, AuthSession.class);
                     if (session.accessToken != null && session.clientToken != null) {
                         result.put(user, session);

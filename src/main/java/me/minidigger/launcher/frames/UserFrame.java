@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.frames;
+package me.minidigger.launcher.frames;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.UsersManager;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.tasks.AuthUser;
-import me.minidigger.skyolauncher.tasks.UserUUID;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.UsersManager;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.tasks.AuthUser;
+import me.minidigger.launcher.tasks.UserUUID;
 
 public class UserFrame extends JDialog {
 

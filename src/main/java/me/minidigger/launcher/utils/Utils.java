@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.utils;
+package me.minidigger.launcher.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -22,9 +22,9 @@ import java.util.zip.ZipFile;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.utils.SystemManager.OS;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.utils.SystemManager.OS;
 
 public class Utils {
 
@@ -154,14 +154,14 @@ public class Utils {
 
     public static String getJavaDir() {
         final String path = System.getProperty("java.home") + File.separator + "bin" + File.separator;
-        if (Skyolauncher.SYSTEM.getPlatform().getOS() == OS.WINDOWS && new File(path + "javaw.exe").isFile()) {
+        if (MiniLauncher.SYSTEM.getPlatform().getOS() == OS.WINDOWS && new File(path + "javaw.exe").isFile()) {
             return path + "javaw.exe";
         }
         return path + "java";
     }
 
     public static boolean isValidFileName(final String name) {
-        final File tempDir = Skyolauncher.SYSTEM.getLauncherTemporaryDirectory();
+        final File tempDir = MiniLauncher.SYSTEM.getLauncherTemporaryDirectory();
         if (!tempDir.exists()) {
             tempDir.mkdir();
         }

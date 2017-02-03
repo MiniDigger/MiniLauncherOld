@@ -1,13 +1,13 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import java.io.File;
 import java.util.logging.Level;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
-import me.minidigger.skyolauncher.utils.Utils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
+import me.minidigger.launcher.utils.Utils;
 
 public class AutoUpdater extends Thread {
 
@@ -22,7 +22,7 @@ public class AutoUpdater extends Thread {
             if (Utils.compareVersions(remoteVersion, LauncherConstants.LAUNCHER_VERSION)) {
                 LogUtils.log(Level.INFO, LauncherConstants.AUTO_UPDATER_PREFIX + "An update was found : " + remoteVersion + ".");
                 LogUtils.log(Level.INFO, LauncherConstants.AUTO_UPDATER_PREFIX + "Downloading it...");
-                String path = Skyolauncher.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+                String path = MiniLauncher.class.getProtectionDomain().getCodeSource().getLocation().getPath();
                 path = path.substring(0, path.lastIndexOf(".jar")) + " v" + remoteVersion + ".jar";
                 final File destination = new File(path);
                 if (destination.exists()) {

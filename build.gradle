@@ -2,11 +2,26 @@ group 'me.minidigger'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'edu.sc.seis.launch4j'
 
 sourceCompatibility = 1.8
 
+buildscript {
+    repositories {
+        maven {
+            url "http://dl.bintray.com/theboegl/gradle-plugins"
+        }
+    }
+    dependencies {
+        classpath 'edu.sc.seis.gradle:launch4j:2.3.0'
+    }
+}
+
 repositories {
     mavenCentral()
+    maven {
+        url "http://dl.bintray.com/theboegl/gradle-plugins"
+    }
     flatDir {
         dirs 'libs'
     }
@@ -19,4 +34,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
 
     compile name: 'pgslookandfeel-1.1.2'
+}
+
+launch4j {
+    mainClassName = 'me.minidigger.launcher.MiniLauncher'
 }

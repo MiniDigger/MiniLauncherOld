@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.frames;
+package me.minidigger.launcher.frames;
 
 import java.awt.*;
 import java.io.File;
@@ -9,26 +9,26 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.ProfilesManager;
-import me.minidigger.skyolauncher.ProfilesManager.LauncherProfile;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.UsersManager;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.frames.ProfileFrame.ProfileChangesListener;
-import me.minidigger.skyolauncher.tasks.AuthUser.AuthSession;
-import me.minidigger.skyolauncher.tasks.GameTasks;
-import me.minidigger.skyolauncher.tasks.GameTasks.GameTasksListener;
-import me.minidigger.skyolauncher.tasks.RefreshToken;
-import me.minidigger.skyolauncher.tasks.RefreshToken.RefreshTokenListener;
-import me.minidigger.skyolauncher.tasks.ServicesStatus;
-import me.minidigger.skyolauncher.tasks.ServicesStatus.ServiceStatusListener;
-import me.minidigger.skyolauncher.utils.Utils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.ProfilesManager;
+import me.minidigger.launcher.ProfilesManager.LauncherProfile;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.UsersManager;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.frames.ProfileFrame.ProfileChangesListener;
+import me.minidigger.launcher.tasks.AuthUser.AuthSession;
+import me.minidigger.launcher.tasks.GameTasks;
+import me.minidigger.launcher.tasks.GameTasks.GameTasksListener;
+import me.minidigger.launcher.tasks.RefreshToken;
+import me.minidigger.launcher.tasks.RefreshToken.RefreshTokenListener;
+import me.minidigger.launcher.tasks.ServicesStatus;
+import me.minidigger.launcher.tasks.ServicesStatus.ServiceStatusListener;
+import me.minidigger.launcher.utils.Utils;
 
 public class LauncherFrame extends JFrame implements ProfileChangesListener, ServiceStatusListener, GameTasksListener, RefreshTokenListener {
 
     private static final long serialVersionUID = 1L;
-    private final me.minidigger.skyolauncher.frames.ProfileFrame profileEditor = new ProfileFrame(this);
+    private final me.minidigger.launcher.frames.ProfileFrame profileEditor = new ProfileFrame(this);
     private final JComboBox<String> checkboxProfile = new JComboBox<String>() {
 
         private static final long serialVersionUID = 1L;
@@ -37,8 +37,8 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
             for (final String profile : ProfilesManager.getProfilesName()) {
                 addItem(profile);
             }
-            if (Skyolauncher.config.latestProfile != null) {
-                setSelectedItem(Skyolauncher.config.latestProfile);
+            if (MiniLauncher.config.latestProfile != null) {
+                setSelectedItem(MiniLauncher.config.latestProfile);
             }
         }
 
@@ -63,10 +63,10 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
         ProfileFrame.addListener(this);
         ServicesStatus.addListener(this);
 
-        setTitle(Utils.buildTitle(Skyolauncher.isOnline));
+        setTitle(Utils.buildTitle(MiniLauncher.isOnline));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(LauncherConstants.LAUNCHER_ICON);
-        setLocation(Skyolauncher.config.launcherPointX, Skyolauncher.config.launcherPointY);
+        setLocation(MiniLauncher.config.launcherPointX, MiniLauncher.config.launcherPointY);
         setPreferredSize(new Dimension(540, 250));// FIXME change back to 400 when we have a logo
         setResizable(false);
 
@@ -93,19 +93,19 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
                 if (ProfilesManager.getProfiles().length != 0) {
-                    Skyolauncher.config.latestProfile = checkboxProfile.getSelectedItem().toString();
+                    MiniLauncher.config.latestProfile = checkboxProfile.getSelectedItem().toString();
                 }
                 Point location;
-                if (Skyolauncher.console != null) {
-                    location = Skyolauncher.console.getLocation();
-                    Skyolauncher.config.consolePointX = location.x;
-                    Skyolauncher.config.consolePointY = location.y;
+                if (MiniLauncher.console != null) {
+                    location = MiniLauncher.console.getLocation();
+                    MiniLauncher.config.consolePointX = location.x;
+                    MiniLauncher.config.consolePointY = location.y;
                 }
                 location = LauncherFrame.this.getLocation();
-                Skyolauncher.config.launcherPointX = location.x;
-                Skyolauncher.config.launcherPointY = location.y;
-                Skyolauncher.config.save();
-                final File tempDir = Skyolauncher.SYSTEM.getLauncherTemporaryDirectory();
+                MiniLauncher.config.launcherPointX = location.x;
+                MiniLauncher.config.launcherPointY = location.y;
+                MiniLauncher.config.save();
+                final File tempDir = MiniLauncher.SYSTEM.getLauncherTemporaryDirectory();
                 if (tempDir.exists()) {
                     tempDir.delete();
                 }

@@ -1,11 +1,11 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import java.util.logging.Level;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.frames.ChangelogFrame;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.frames.ChangelogFrame;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class ChangelogDownloader extends Thread {
 

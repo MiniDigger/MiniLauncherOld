@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.utils;
+package me.minidigger.launcher.utils;
 
 import java.io.IOException;
 import java.io.OutputStream;

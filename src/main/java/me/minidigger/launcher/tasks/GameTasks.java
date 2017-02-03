@@ -1,4 +1,4 @@
-package me.minidigger.skyolauncher.tasks;
+package me.minidigger.launcher.tasks;
 
 import com.google.gson.Gson;
 
@@ -19,17 +19,17 @@ import java.util.UUID;
 import java.util.logging.Level;
 import javax.swing.*;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.ProfilesManager.LauncherProfile;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.UsersManager;
-import me.minidigger.skyolauncher.UsersManager.User;
-import me.minidigger.skyolauncher.tasks.AuthUser.Property;
-import me.minidigger.skyolauncher.utils.ConnectionUtils;
-import me.minidigger.skyolauncher.utils.LogUtils;
-import me.minidigger.skyolauncher.utils.SystemManager.OS;
-import me.minidigger.skyolauncher.utils.SystemManager.Platform;
-import me.minidigger.skyolauncher.utils.Utils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.ProfilesManager.LauncherProfile;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.UsersManager;
+import me.minidigger.launcher.UsersManager.User;
+import me.minidigger.launcher.tasks.AuthUser.Property;
+import me.minidigger.launcher.utils.ConnectionUtils;
+import me.minidigger.launcher.utils.LogUtils;
+import me.minidigger.launcher.utils.SystemManager.OS;
+import me.minidigger.launcher.utils.SystemManager.Platform;
+import me.minidigger.launcher.utils.Utils;
 
 public class GameTasks extends Thread {
 
@@ -48,7 +48,7 @@ public class GameTasks extends Thread {
         for (final GameTasksListener listener : listeners) {
             listener.onGameTasksBegin();
         }
-        final Platform platform = Skyolauncher.SYSTEM.getPlatform();
+        final Platform platform = MiniLauncher.SYSTEM.getPlatform();
         final OS os = platform.getOS();
         String arch = platform.getArch().getName();
         LogUtils.log(Level.INFO, LauncherConstants.GAME_TASKS_PREFIX + "Debug info :");
@@ -222,7 +222,7 @@ public class GameTasks extends Thread {
 
     private boolean fixFile(final File file, final String fileUrl, final FileType type, final FixMode mode) throws IOException {
         LogUtils.log(Level.INFO, LauncherConstants.GAME_TASKS_PREFIX + mode.name + " " + type.name + " : " + file.getPath() + ".");
-        if (Skyolauncher.isOnline) {
+        if (MiniLauncher.isOnline) {
             LogUtils.log(Level.INFO, LauncherConstants.GAME_TASKS_PREFIX + (mode == FixMode.INVALID ? "Re-" : "") + "Downloading it.");
             if (type != FileType.FILE) {
                 file.getParentFile().mkdirs();
@@ -257,7 +257,7 @@ public class GameTasks extends Thread {
     }
 
     public final void notifyListeners(final boolean success) {
-        if (!success && !Skyolauncher.isOnline) {
+        if (!success && !MiniLauncher.isOnline) {
             LogUtils.log(Level.INFO, LauncherConstants.GAME_TASKS_PREFIX + "Please re-launch the selected version when you will be online.");
         }
         for (final GameTasksListener listener : listeners) {

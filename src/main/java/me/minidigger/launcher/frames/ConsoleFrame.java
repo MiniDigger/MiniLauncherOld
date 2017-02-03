@@ -1,11 +1,11 @@
-package me.minidigger.skyolauncher.frames;
+package me.minidigger.launcher.frames;
 
 import java.awt.*;
 import javax.swing.*;
 
-import me.minidigger.skyolauncher.LauncherConstants;
-import me.minidigger.skyolauncher.Skyolauncher;
-import me.minidigger.skyolauncher.utils.LogUtils;
+import me.minidigger.launcher.LauncherConstants;
+import me.minidigger.launcher.MiniLauncher;
+import me.minidigger.launcher.utils.LogUtils;
 
 public class ConsoleFrame extends JFrame {
 
@@ -17,7 +17,7 @@ public class ConsoleFrame extends JFrame {
         this.setTitle("Console");
         this.setType(Type.POPUP);
         this.setPreferredSize(new Dimension(510, 330));
-        this.setLocation(Skyolauncher.config.consolePointX, Skyolauncher.config.consolePointY);
+        this.setLocation(MiniLauncher.config.consolePointX, MiniLauncher.config.consolePointY);
         final JTextArea txtLogs = new JTextArea();
         txtLogs.setEditable(false);
         txtLogs.setFont(new Font("Lucida Console", Font.PLAIN, 14));

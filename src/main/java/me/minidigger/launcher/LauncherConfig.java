@@ -1,11 +1,11 @@
-package me.minidigger.skyolauncher;
+package me.minidigger.launcher;
 
 import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
 import java.util.UUID;
 
-import me.minidigger.skyolauncher.utils.JSONObject;
+import me.minidigger.launcher.utils.JSONObject;
 
 public class LauncherConfig extends JSONObject {
 

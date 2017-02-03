@@ -1,15 +1,13 @@
-package me.minidigger.skyolauncher.utils;
+package me.minidigger.launcher.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.lang.reflect.Field;
 
-import me.minidigger.skyolauncher.Skyolauncher;
+import me.minidigger.launcher.MiniLauncher;
 
 public abstract class JSONObject {
 
@@ -63,9 +61,9 @@ public abstract class JSONObject {
 
     public enum ObjectType {
 
-        USER(new File(Skyolauncher.SYSTEM.getApplicationDirectory() + File.separator + "users")),
-        PROFILE(new File(Skyolauncher.SYSTEM.getApplicationDirectory() + File.separator + "profiles")),
-        CONFIG(Skyolauncher.SYSTEM.getApplicationDirectory());
+        USER(new File(MiniLauncher.SYSTEM.getApplicationDirectory() + File.separator + "users")),
+        PROFILE(new File(MiniLauncher.SYSTEM.getApplicationDirectory() + File.separator + "profiles")),
+        CONFIG(MiniLauncher.SYSTEM.getApplicationDirectory());
 
         public final File directory;
 
