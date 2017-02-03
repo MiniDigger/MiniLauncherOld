@@ -67,12 +67,13 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(LauncherConstants.LAUNCHER_ICON);
         setLocation(Skyolauncher.config.launcherPointX, Skyolauncher.config.launcherPointY);
-        setPreferredSize(new Dimension(540, 400));
+        setPreferredSize(new Dimension(540, 250));// FIXME change back to 400 when we have a logo
         setResizable(false);
 
         Container pane = this.getContentPane();
         pane.setBackground(new Color(66, 65, 61));
         JLabel lblLogo = new JLabel(new ImageIcon(LauncherConstants.LAUNCHER_IMAGE));
+        lblLogo.setVisible(false);// FIXME find a nice logo
         final JProgressBar prgBarDownload = new JProgressBar();
         prgBarDownload.setStringPainted(true);
         prgBarDownload.setVisible(false);
