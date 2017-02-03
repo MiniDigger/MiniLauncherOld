@@ -30,7 +30,7 @@ public class UserFrame extends JDialog {
         }
 
     };
-    private static final List<UserChangesListener> listeners = new ArrayList<UserChangesListener>();
+    private static final List<UserChangesListener> listeners = new ArrayList<>();
 
     public UserFrame(final JFrame parent, final String account) {
         final Color background = new Color(241, 237, 228);
@@ -52,18 +52,14 @@ public class UserFrame extends JDialog {
         final JPasswordField pswrdfldPassword = new JPasswordField();
         pswrdfldPassword.setEchoChar('x');
         final JCheckBox chckbxOfflineMode = new JCheckBox("Offline mode");
-        chckbxOfflineMode.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged(final ItemEvent event) {
-                final boolean visible = !chckbxOfflineMode.isSelected();
-                pswrdfldPassword.setVisible(visible);
-                lblPassword.setVisible(visible);
-                if (visible) {
-                    btnLogIn.setText("Log in !");
-                } else {
-                    btnLogIn.setText("Save");
-                }
+        chckbxOfflineMode.addItemListener(event -> {
+            final boolean visible = !chckbxOfflineMode.isSelected();
+            pswrdfldPassword.setVisible(visible);
+            lblPassword.setVisible(visible);
+            if (visible) {
+                btnLogIn.setText("Log in !");
+            } else {
+                btnLogIn.setText("Save");
             }
         });
         if (account != null) {
@@ -74,22 +70,18 @@ public class UserFrame extends JDialog {
         }
         chckbxOfflineMode.setBackground(background);
         chckbxOfflineMode.setForeground(Color.BLACK);
-        btnLogIn.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(final ActionEvent event) {
-                final String username = txtfldUsername.getText();
-                if (!UsersManager.hasUser(username)) {
-                    btnLogIn.setEnabled(false);
-                    btnLogIn.setText("Please wait...");
-                    if (pswrdfldPassword.isVisible()) {
-                        new AuthUser(username, new String(pswrdfldPassword.getPassword()), UserFrame.this).start();
-                    } else {
-                        new UserUUID(username, UserFrame.this).start();
-                    }
+        btnLogIn.addActionListener(event -> {
+            final String username = txtfldUsername.getText();
+            if (!UsersManager.hasUser(username)) {
+                btnLogIn.setEnabled(false);
+                btnLogIn.setText("Please wait...");
+                if (pswrdfldPassword.isVisible()) {
+                    new AuthUser(username, new String(pswrdfldPassword.getPassword()), UserFrame.this).start();
                 } else {
-                    JOptionPane.showMessageDialog((Component) event.getSource(), "This user already exists !", "Error !", JOptionPane.ERROR_MESSAGE);
+                    new UserUUID(username, UserFrame.this).start();
                 }
+            } else {
+                JOptionPane.showMessageDialog((Component) event.getSource(), "This user already exists !", "Error !", JOptionPane.ERROR_MESSAGE);
             }
         });
         final GroupLayout groupLayout = new GroupLayout(getContentPane());
@@ -98,13 +90,13 @@ public class UserFrame extends JDialog {
         pane.setLayout(groupLayout);
     }
 
-    public static final void addListener(final UserChangesListener listener) {
+    public static void addListener(final UserChangesListener listener) {
         listeners.add(listener);
     }
 
     public interface UserChangesListener {
 
-        public void onUserSaved(final User user);
+        void onUserSaved(final User user);
 
     }
 

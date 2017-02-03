@@ -18,7 +18,6 @@ import me.minidigger.skyolauncher.frames.LauncherFrame;
 import me.minidigger.skyolauncher.tasks.AutoUpdater;
 import me.minidigger.skyolauncher.tasks.ConnectivityChecker;
 import me.minidigger.skyolauncher.tasks.RefreshToken;
-import me.minidigger.skyolauncher.tasks.VanillaImporter;
 import me.minidigger.skyolauncher.utils.JSONObject.ObjectType;
 import me.minidigger.skyolauncher.utils.LogUtils;
 import me.minidigger.skyolauncher.utils.LogUtils.ErrorOutputStream;
@@ -74,7 +73,7 @@ public class Skyolauncher {
             }
             LogUtils.log(Level.INFO, LauncherConstants.LAUNCHER_PREFIX + "Done.");
             LogUtils.log(Level.INFO, LauncherConstants.LAUNCHER_PREFIX + "Loading users...");
-            final List<User> onlineUsers = new ArrayList<User>();
+            final List<User> onlineUsers = new ArrayList<>();
             if (ObjectType.USER.directory.exists()) {
                 for (final File userFile : ObjectType.USER.directory.listFiles()) {
                     final String fileName = userFile.getName();
@@ -88,10 +87,6 @@ public class Skyolauncher {
                 ObjectType.USER.directory.mkdir();
             }
             LogUtils.log(Level.INFO, LauncherConstants.LAUNCHER_PREFIX + "Done.");
-            final File vanillaData = new File(mcDir, "launcher_profiles.json");
-            if (vanillaData.exists() && vanillaData.isFile() && !config.vanillaDataImported) {
-                new VanillaImporter(vanillaData).start();
-            }
             new LauncherFrame().setVisible(true);
             if (onlineUsers.size() != 0) {
                 new RefreshToken(onlineUsers.toArray(new User[onlineUsers.size()])).start();

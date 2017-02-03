@@ -18,7 +18,7 @@ public class LauncherConstants {
 	/* Launcher globals options. */
 
     public static final String LAUNCHER_NAME = "MiniLauncher";
-    public static final String LAUNCHER_VERSION = "0.2.2";
+    public static final String LAUNCHER_VERSION = "1.0.0";
     public static final String LAUNCHER_STATUS = "BETA";
     public static final String[] LAUNCHER_AUTHORS = new String[]{"Skyost, MiniDigger"};
     public static final String LAUNCHER_PREFIX = "[Launcher] ";
@@ -50,8 +50,8 @@ public class LauncherConstants {
 	/* ConnectivityChecker options. */
 
     public static final String CONNECTIVITY_CHECKER_PREFIX = "[Connectivity] ";
-    public static final String[] CONNECTIVITY_CHECKER_URLS = new String[]{"http://www.google.com", "http://www.facebook.com", "http://www.yahoo.fr", "http://www.skyost.eu"};
-	
+    public static final String[] CONNECTIVITY_CHECKER_URLS = new String[]{"http://www.google.com", "http://www.facebook.com", "http://minilauncher.minidigger.me/"};
+
 	/* ChangelogDownloader options. */
 
     public static final String CHANGELOG_DOWNLOADER_PREFIX = "[Changelog] ";
@@ -106,7 +106,7 @@ public class LauncherConstants {
 
 	/* Others things... */
 
-    private static final Font loadFontFromRes(final int format, final String path, final float size) {
+    private static Font loadFontFromRes(final int format, final String path, final float size) {
         try {
             return Font.createFont(format, Skyolauncher.class.getResourceAsStream(path)).deriveFont(size);
         } catch (final Exception ex) {
@@ -115,7 +115,7 @@ public class LauncherConstants {
         return null;
     }
 
-    private static final Image loadImageFromRes(final String path) {
+    private static Image loadImageFromRes(final String path) {
         return Toolkit.getDefaultToolkit().getImage(Skyolauncher.class.getResource(path));
     }
 
