@@ -1,10 +1,6 @@
 package me.minidigger.skyolauncher.frames;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -33,7 +29,7 @@ public class UserFrame extends JDialog {
     private static final List<UserChangesListener> listeners = new ArrayList<>();
 
     public UserFrame(final JFrame parent, final String account) {
-        final Color background = new Color(241, 237, 228);
+        final Color background = new Color(66, 65, 61);
         this.setSize(315, 200);
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setModal(true);

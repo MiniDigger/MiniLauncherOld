@@ -71,7 +71,7 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
         setResizable(false);
 
         Container pane = this.getContentPane();
-        pane.setBackground(new Color(241, 237, 228));
+        pane.setBackground(new Color(66, 65, 61));
         JLabel lblLogo = new JLabel(new ImageIcon(LauncherConstants.LAUNCHER_IMAGE));
         final JProgressBar prgBarDownload = new JProgressBar();
         prgBarDownload.setStringPainted(true);
@@ -114,11 +114,11 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
             }
         }));
         final JLabel lblMinecraftWebsite = new JLabel("Minecraft website :");
-        lblMinecraftWebsite.setForeground(Color.BLACK);
+        lblMinecraftWebsite.setForeground(Color.WHITE);
         final JLabel lblMojangAuthServer = new JLabel("Mojang auth server :");
-        lblMojangAuthServer.setForeground(Color.BLACK);
+        lblMojangAuthServer.setForeground(Color.WHITE);
         final JLabel lblMinecraftSkinsServer = new JLabel("Minecraft skins server :");
-        lblMinecraftSkinsServer.setForeground(Color.BLACK);
+        lblMinecraftSkinsServer.setForeground(Color.WHITE);
         final JLabel lblMinecraftWebsiteStatus = new JLabel();
         final JLabel lblMojangAuthServerStatus = new JLabel();
         final JLabel lblMinecraftSkinsServerStatus = new JLabel();
@@ -161,7 +161,7 @@ public class LauncherFrame extends JFrame implements ProfileChangesListener, Ser
         for (final JLabel label : status.values()) {
             label.setText("Please wait...");
             label.setFont(label.getFont().deriveFont(Font.ITALIC));
-            label.setForeground(Color.BLACK);
+            label.setForeground(Color.WHITE);
         }
     }
 
