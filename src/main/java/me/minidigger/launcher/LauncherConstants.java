@@ -62,7 +62,7 @@ public class LauncherConstants {
     public static final String GAME_TASKS_PREFIX = "[Game Tasks] ";
     public static final String LIBS_SUFFIX = "/libraries";
     public static final String LIBS_URL = "https:/" + LIBS_SUFFIX + ".minecraft.net";
-    public static final String MINECRAFT_AWS_URL = "http://s3.amazonaws.com/Minecraft.Download";
+    public static final String MINECRAFT_AWS_URL = "https://launchermeta.mojang.com/mc/game";
     public static final String MINECRAFT_RES_URL = "http://resources.download.minecraft.net";
     public static final String VERSIONS_SUFFIX = "/versions";
     public static final String ASSETS_SUFFIX = "/assets";
@@ -90,7 +90,7 @@ public class LauncherConstants {
 	/* UpdateVersions options. */
 
     public static final String UPDATE_VERSIONS_PREFIX = "[Versions] ";
-    public static final String VERSIONS_URL = "http://s3.amazonaws.com/Minecraft.Download/versions/versions.json";
+    public static final String VERSIONS_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
     public static final String[] VERSIONS_TYPES = new String[]{"snapshot", "release"};
 
 	/* UserUUID options. */
